@@ -20,6 +20,7 @@ namespace homeLibrary.Data
         {
             modelBuilder.HasDefaultSchema("library");
 
+
             modelBuilder.Entity<Author>()
                 .Property(e => e.Created)
                 .HasDefaultValueSql("now()");
@@ -35,7 +36,11 @@ namespace homeLibrary.Data
 
 
             modelBuilder.Entity<BookAuthor>()
-                .HasKey(ba => new { ba.BookId, ba.AuthorId });
+                    .HasKey(ba => new
+                    {
+                        ba.BookId,
+                        ba.AuthorId
+                    });
             modelBuilder.Entity<BookAuthor>()
                 .HasOne(b => b.Book)
                 .WithMany(ba => ba.BookAuthor)
@@ -49,6 +54,27 @@ namespace homeLibrary.Data
                 .HasDefaultValueSql("now()");
             modelBuilder.Entity<BookAuthor>()
                 .ToTable("book_author");
+
+
+            modelBuilder.Entity<Volume>()
+                .Property(e => e.Created)
+                .HasDefaultValueSql("now()");
+            modelBuilder.Entity<Volume>()
+                .ToTable("volume");
+
+
+            modelBuilder.Entity<Form>()
+                .Property(e => e.Created)
+                .HasDefaultValueSql("now()");
+            modelBuilder.Entity<Form>()
+                .ToTable("form");
+
+
+            modelBuilder.Entity<Status>()
+                .Property(e => e.Created)
+                .HasDefaultValueSql("now()");
+            modelBuilder.Entity<Status>()
+                .ToTable("status");
         }
     }
 }
