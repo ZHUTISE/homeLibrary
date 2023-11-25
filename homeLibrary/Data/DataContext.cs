@@ -26,6 +26,9 @@ namespace homeLibrary.Data
                 .HasDefaultValueSql("now()");
             modelBuilder.Entity<Author>()
                 .ToTable("author");
+            modelBuilder.Entity<Author>()
+                .HasIndex(b => b.FMLName)
+                .IsUnique();
 
 
             modelBuilder.Entity<Book>()
@@ -33,6 +36,12 @@ namespace homeLibrary.Data
                 .HasDefaultValueSql("now()");
             modelBuilder.Entity<Book>()
                 .ToTable("book");
+            //modelBuilder.Entity<Book>()
+            //    .HasIndex(b => b.Title)
+            //    .IsUnique();
+            modelBuilder.Entity<Book>()
+                .HasIndex(b => b.ISBN)
+                .IsUnique();
 
 
             modelBuilder.Entity<BookAuthor>()
@@ -62,12 +71,24 @@ namespace homeLibrary.Data
             modelBuilder.Entity<Volume>()
                 .ToTable("volume");
 
+            modelBuilder.Entity<VolumeSet>()
+                .Property(e => e.Created)
+                .HasDefaultValueSql("now()");
+            modelBuilder.Entity<VolumeSet>()
+                .ToTable("volume_set");
+            modelBuilder.Entity<VolumeSet>()
+                .HasIndex(b => b.Description)
+                .IsUnique();
+
 
             modelBuilder.Entity<Form>()
                 .Property(e => e.Created)
                 .HasDefaultValueSql("now()");
             modelBuilder.Entity<Form>()
                 .ToTable("form");
+            modelBuilder.Entity<Form>()
+                .HasIndex(b => b.Description)
+                .IsUnique();
 
 
             modelBuilder.Entity<Status>()
@@ -75,6 +96,11 @@ namespace homeLibrary.Data
                 .HasDefaultValueSql("now()");
             modelBuilder.Entity<Status>()
                 .ToTable("status");
+            modelBuilder.Entity<Status>()
+                .HasIndex(b => b.Description)
+                .IsUnique();
+
+
         }
     }
 }
