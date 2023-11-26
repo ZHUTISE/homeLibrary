@@ -1,11 +1,10 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
+using HomeLibrary.DTO;
 using homeLibrary.Interface;
 using homeLibrary.Models;
-using HomeLibrary.DTO;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Home_library.Controllers
+namespace homeLibrary.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]

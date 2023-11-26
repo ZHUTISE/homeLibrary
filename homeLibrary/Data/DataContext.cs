@@ -15,6 +15,9 @@ namespace homeLibrary.Data
         public DbSet<Author> Author { get; set; }
         public DbSet<Book> Book { get; set; }
         public DbSet<BookAuthor> BookAuthor { get; set; }
+        public DbSet<Form> Form { get; set; }
+        public DbSet<Status> Status { get; set; }
+        public DbSet<VolumeSet> VolumeSet { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

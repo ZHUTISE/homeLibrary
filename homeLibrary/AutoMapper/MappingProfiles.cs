@@ -9,6 +9,10 @@ namespace HomeLibrary.AutoMapper
 		public MappingProfiles()
 		{
 			CreateMap<Book, BookDTO>();
+			CreateMap<Author, AuthorDTO>();
+			CreateMap<Form, FormDTO>();
+			CreateMap<Status, StatusDTO>();
+			CreateMap<VolumeSet, VolumeSetDTO>();
 		}
 	}
 }
